@@ -5,6 +5,7 @@ const logger = require("morgan")
 const typeDefs = require("./typeDefs")
 const resolvers = require("./resolvers")
 
+// Read the .env file
 require("dotenv").config()
 
 // connect to the mongodb
