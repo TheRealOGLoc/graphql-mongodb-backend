@@ -19,9 +19,18 @@ const resolvers = {
         updatePost: async (parent, args, context, info) => {
             const id = args.id
             const { title, description } = args.post
-            const post = await Post.findByIdAndUpdate(id, { title, description }, { new: true })  // add { new: true } to get the updated document
+            const post = await Post.findByIdAndUpdate(
+                id, 
+                { title, description }, 
+                { new: true })  // add { new: true } to get the updated document
+            return post
+        },
+        deletePost: async (parent, args, context, info) => {
+            const id = args.id
+            const post = await Post.findByIdAndDelete(id)
             return post
         }
+        
     }
 }
 
